@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAUGHAN STORE</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <!-- CSS do Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 255, 255); /* Cor de fundo preta */
+            color: white; /* Cor do texto branca */
+        }
+        header .logo {
+                    max-width: 190px; /* Ajuste o tamanho máximo da logo conforme necessário */
+                    position: relative; /* Permite posicionamento absoluto dentro do cabeçalho */
+
+        }
+        header {
+            background-image: url('images/Fundo_Oriental.jpeg'); /* Caminho correto */
+            background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o elemento */
+            background-position: center; /* Centraliza a imagem no elemento */
+            color: white; /* Cor do texto */
+            text-align: center;
+            padding: 50px 0; /* Ajusta o espaçamento interno do cabeçalho */
+            height: 100px;
+        }
+        .header-text {
+            position: relative; /* Adiciona posição relativa */
+            z-index: 1; /* Define a ordem de empilhamento para garantir que o texto fique na frente da imagem */
+        }
+        #search-bar {
+            padding: 10px;
+            margin:  15px;
+            background-color: #6c6c6cb8; /* Cor de fundo */
+            color: #000000; /* Cor do texto */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        #search-bar::placeholder {
+            color: #ffffff; /* Cor do texto de placeholder */
+        }
+
+        #search-bar:focus {
+            outline: none; /* Remove a borda de foco ao clicar */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Sombra ao focar */
+            color: #ffffff; /* Cor do texto de placeholder */
+
+        }
+    
+        .conteudo {
+            padding-top: 60px; /* Espaçamento acima do conteúdo para evitar sobreposição com a barra de navegação fixa */
+            padding-bottom: 50px; /* Espaçamento abaixo do conteúdo para evitar sobreposição com o rodapé */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .product {
+            float: left;
+            width: 30%;
+            margin: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+       
+        .product h3 {
+            margin-top: 0;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px; /* Ajuste o raio conforme necessário */
+        }
+     
+      
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+<body>
+
+<header>
+    <img src="images/Vaughan_logo.png" alt="Logo" class="logo">
+
+</header>
+
+<nav>
+    <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+    <a href="#sobre">Sobre</a>
+    <a href="#contatoemail">Contato</a>
+    <a href="#" id="carrinho-link">Carrinho</a>
+    <input type="text" id="search-bar" placeholder="Pesquisar produtos...">
+    <div class="dropdown" id="produtos-dropdown">
+        <a href="#catalogo" class="dropdown-toggle">Produtos</a>
+        <div class="dropdown-menu" id="tipos-produtos">
+            <!-- Tipos de produtos serão adicionados dinamicamente aqui -->
+        </div>
+    </div>
+    <a href="#">Início</a>
+    <div class="containerlogin">
+        <button class="btnlogin hidden" onclick="window.location.href='logingoogle.html'">LOGIN</button>
+        <div id="greeting" class="hidden">
+            <span>Olá, <span id="user-name"></span></span>
+            <img id="user-avatar" class="user-avatar" src="" alt="User Avatar" onclick="toggleUserMenu()" />
+            <div id="user-menu" class="user-menu hidden">
+                <a href="#">Meus Pedidos</a>
+                <a href="meusdados.html">Meus Dados</a>
+                <a href="#" onclick="signOut()">Sair</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<!--Mensagem de boas vindas -->
+<div class="welcome-message">
+    <h2>Você chegou à Vaughan Geek!</h2>
+    <h2>Feito por Gabriel Dias Domingues</h2>
+
+    <p>Se você é um verdadeiro fã de anime e mangá, então você veio ao lugar certo! Na Vaughan Geek, mergulhamos no emocionante universo das action figures, trazendo para você uma coleção exclusiva dos seus personagens favoritos.</p>
+    <p>Nossa seleção cuidadosamente escolhida de produtos geek é uma homenagem aos mais icônicos heróis e vilões dos animes mais populares. De Naruto a Goku, de Luffy a Deku, temos todos os grandes nomes que você ama.</p>
+    <p>Cada produto geek é mais do que apenas um objeto de colecionador; é uma representação vívida da paixão, aventura e heroísmo que definem o mundo do anime. Nossos produtos são verdadeiras obras de arte que você pode exibir com orgulho em sua casa.</p>
+    <p>Se você está procurando o presente perfeito &#127873 &#127873 para um amigo otaku ou deseja se dar um belíssimo presente &#127873 &#127873, você está no lugar certo. Dê uma olhada em nossa seleção e entre no mundo maravilhoso dos produtos geek!</p>
+</div>
+
+<!-- Exemplo básico de exibição de avaliações -->
+<div id="avaliacoes-container">
+    <!-- Container onde as avaliações serão inseridas -->
+  </div>
+<!--MINIANUNCIOS -->
+<section id="catalogo" class="visucatalogo">
+    <div class="container">
+        <h3>Catálogo</h3>
+        <div id="filter-buttons"></div>
+        <div id="resultado"></div>
+        <div id="no-results-message" style="display: none;">Nenhum produto localizado</div>
+        <div id="pagination">
+            <button id="prevPage" onclick="prevPage()">Anterior</button>
+            <button id="nextPage" onclick="nextPage()">Próximo</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- Anúncio do Zoro Div para o carrossel Slick -->
+<div class="product-gallery slick" id="zoro-carousel">
+    <div class="product-item" data-id="1" data-type="action-figure"> 
+        <div class="main-image-container">
+            <div class="thumbnails" id="zoro-thumbnails">
+                <img src="images/Zoro_!.jpg" alt="Miniatura Denji 1">
+                <img src="images/Zoro_2.jpg" alt="Miniatura Denji 2">
+                <img src="images/Zoro_3.jpg" alt="Miniatura Denji 3">
+                <img src="images/Zoro_4.jpg" alt="Miniatura Denji 4">
+                <img src="images/Zoro_5.jpg" alt="Miniatura Denji 5">
+                <video src="images/Zorovideo.mp4" alt="Miniatura Denji Video" ></video>
+
+            </div>
+            <div class="image-container">
+                
+                <img src="images/Zoro_!.jpg" alt="Denji Pochita" class="main-image" id="denji-main-image">
+                            <!-- Seção de Avaliações -->
+      <div class="product-rating">
+                    <div class="stars" data-rating="0">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span> <!-- Estrela vazia -->
+                    </div>
+                    <div class="review-count">(0 avaliações)</div>
+                    <div class="average-rating">(0.0)</div>
+
+                </div>
+
+            </div>
+        <div class="product-description-container">
+
+            <div class="product-description" id="zoro-details-container">
+                <p class="product-title">RORONOA ZORO</p>
+                <p class="product-details">
+                    Encare o mundo com a determinação e a força de Roronoa Zoro, o espadachim destemido do Chapéu de Palha! Com sua ética inabalável e sua habilidade excepcional com a espada, Zoro personifica a coragem e a lealdade.                </p>
+                <p class="product-details">
+                    Ao adquirir a figura de Zoro, você não apenas recebe uma peça de colecionador, mas também um símbolo de perseverança e determinação. Sua presença imponente e sua pose de combate capturam a essência do guerreiro samurai que ele é.                </p>
+                <p class="product-details">
+                    Imagine exibir Zoro em sua coleção, lembrando-se diariamente de que nenhum obstáculo é grande demais para ser superado, e nenhum desafio é forte demais para ser enfrentado. Com Zoro ao seu lado, você encontrará a motivação necessária para superar qualquer dificuldade em seu caminho.                </p>
+                <p class="product-details">
+                    Seja inspirado pela resiliência e pelo espírito indomável de Zoro. Adquira sua figura hoje e deixe que a determinação do espadachim lendário o guie em suas próprias aventuras!                </p>
+                    <p class="precozoro" id="precozoro"><strong>Preço:</strong> <span class="preco-original">De: R$89,99</span> POR: <span class="preco-final">R$79,99</span></p>
+            </div>
+            <button  id="inicioprodutos" class="botao_detalhes_produtos" data-target="zoro-details-container">Detalhes do Produto</button>
+            <div class="novotexto-zoro">
+                <p class="product-title2">Descrição do Produto</p>
+                <p class="product-details2">
+                    <strong>Altura:</strong> Aproximadamente 10 cm      </p>
+                <p class="product-details2">
+                    <strong>Material:</strong> PVC de alta qualidade  + ABS de alto grau   </p>
+                <p class="product-details2">
+                    <strong>Embalagem:</strong>OPP    </p>
+                 <p class="product-details2">
+                    <strong>Funcionalidades:</strong> Perfeito para colecionar, decorar ambientes, presentear e muito mais! </p>
+              </div> 
+              <div>
+
+                <button class="botao_comprar_produtos">COMPRAR</button>
+                <button id="botao-carrinho" class="botao_carrinho_produtos" data-name="RORONOA ZORO" data-price="79.99" data-image="images/Zoro_!.jpg">
+                    <img src="images/carrinhodecompra.png" alt="Carrinho" class="imagem-carrinho">
+                </button>
+
+              </div>
+        </div>       
+        </div>
+    </div>
+</div>
+<!-- Anúncio do Denji -->
+<div class="product-gallery slick" id="denji-carousel">
+    <div class="product-item" data-id="2" data-type="action-figure">
+        <div class="main-image-container">
+            <div class="thumbnails" id="denji-thumbnails">
+                <img src="images/Denji_1.jpg" alt="Miniatura Denji 1">
+                <img src="images/Denji_2.jpg" alt="Miniatura Denji 2">
+                <img src="images/Denji_3.jpg" alt="Miniatura Denji 3">
+                <img src="images/Denji_4.jpg" alt="Miniatura Denji 4">
+                <img src="images/Denji_5.jpg" alt="Miniatura Denji 5">
+                <video src="images/Denjivideo.mp4" alt="Miniatura Denji Video" muted></video>
+
+            </div>
+            <div class="image-container">
+                <img src="images/Denji_1.jpg" alt="Denji Pochita" class="main-image" id="denji-main-image">
+                <div class="product-rating">
+                    <div class="stars" data-rating="0">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span> <!-- Estrela vazia -->
+                    </div>
+                    <div class="review-count">(0 avaliações)</div>
+                    <div class="average-rating">(0.0)</div>
+
+                </div>
+            </div>
+        <div class="product-description-container">
+
+            <div class="product-description" id="denji-details-container">
+                <p class="product-title">Denji (Chainsaw Man)</p>
+                <p class="product-details">
+                    Entre no mundo sombrio e visceral de Chainsaw Man com Denji, o anti-herói que se funde com seu cachorro demônio motosserra, Pochita, para enfrentar ameaças de outro mundo. A figura de Denji captura sua essência bruta e determinada.
+                </p>
+                <p class="product-details">
+                    Denji representa a luta pela sobrevivência e a busca incessante por uma vida melhor, mesmo em face das adversidades mais extremas. Sua figura não é apenas um colecionável, mas um símbolo de resiliência e adaptação.
+                </p>
+                <p class="product-details">
+                    Imagine exibir Denji em sua coleção, lembrando-se diariamente de que a verdadeira força vem de dentro e que, mesmo nas situações mais desesperadoras, a determinação e a coragem podem prevalecer.
+                </p>
+                <p class="product-details">
+                    Seja inspirado pela história única de Denji e sua transformação extraordinária. Adquira sua figura hoje e deixe que a determinação implacável de Denji o guie em suas próprias batalhas diárias!
+                </p>
+                <p class="precodenji" id="precodenji"><strong>Preço:</strong> <span class="preco-original">De: R$119,99</span> POR: <span class="preco-final">R$109,99</span></p>
+
+            </div>
+            <button class="botao_detalhes_produtos" data-target="denji-details-container">Detalhes do Produto</button>
+            <div class="novotexto-denji">
+                <p class="product-title2">Descrição do Produto</p>
+                <p class="product-details2">
+                    <strong>Altura:</strong> Aproximadamente 18 cm      </p>
+                <p class="product-details2">
+                    <strong>Material:</strong> PVC de alta qualidade  + ABS de alto grau    </p>
+                <p class="product-details2">
+                    <strong>Embalagem:</strong> Coluna de Bolha + Proteção com Plástico Bolha (Com Segurança)    </p>
+                 <p class="product-details2">
+                    <strong>Funcionalidades:</strong> Perfeito para colecionar, decorar ambientes, presentear e muito mais! À prova de umidade, resistente a altas temperaturas, limpeza regular </p>
+
+              </div> 
+              <div>
+                <button class="botao_comprar_produtos">COMPRAR</button>
+                <button class="botao_carrinho_produtos" data-name="Denji(Chainsaw Man)" data-price="109.99" data-image="images/Denji_1.jpg">
+                    <img src="images/carrinhodecompra.png" alt="Carrinho" class="imagem-carrinho">
+              </div>
+        </div>       
+        </div>
+    </div>
+    
+</div>
+<!-- Anúncio do Charizard -->
+<div class="product-gallery slick" id="charizard-carousel">
+    <div class="product-item" data-id="3" data-type="action-figure">
+        <div class="main-image-container">
+            <div class="thumbnails" id="charizard-thumbnails">
+                <img src="images/Charizard_1.jpg" alt="Miniatura Charizard 1">
+                <img src="images/Charizard_2.jpg" alt="Miniatura Charizard 2">
+                <img src="images/Charizard_3.jpg" alt="Miniatura Charizard 3">
+                <img src="images/Charizard_4.jpg" alt="Miniatura Charizard 4">
+                <img src="images/Charizard_5.jpg" alt="Miniatura Charizard 5">
+                <video src="images/Charizardvideo.mp4" alt="Miniatura Denji Video" muted></video>
+
+            </div>
+            <div class="image-container">
+                <img src="images/Charizard_1.jpg" alt="CHARIZARD FIGURE" class="main-image" id="charizard-main-image">
+                <div class="product-rating">
+                    <div class="stars" data-rating="0">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span> <!-- Estrela vazia -->
+                    </div>
+                    <div class="review-count">(0 avaliações)</div>
+                    <div class="average-rating">(0.0)</div>
+
+                </div>
+            </div>
+        <div class="product-description-container">
+
+            <div class="product-description" id="charizard-details-container">
+                <p class="product-title">Charizard</p>
+                <p class="product-details">
+                    Charizard, um dos Pokémon mais emblemáticos, entra em sua coleção com esta incrível figura de ação! Conhecido por seu poder de fogo impressionante e sua presença imponente, Charizard é um símbolo de força e determinação.
+                </p>
+                <p class="product-details">
+                    Esta figura captura perfeitamente a essência de Charizard, desde suas asas poderosas até suas chamas ardentes. Ideal para qualquer fã de Pokémon, este Charizard é uma adição magnífica a qualquer coleção.
+                </p>
+                <p class="product-details">
+                    Coloque-o em uma pose de batalha e reviva suas memórias favoritas dos jogos e séries. Charizard é mais do que apenas um Pokémon; ele é um verdadeiro ícone da cultura pop.
+                </p>
+                <p class="product-details">
+                    Não perca a chance de ter este poderoso Pokémon em sua estante. Adquira agora e deixe que a chama de Charizard ilumine sua coleção!
+                </p>
+                <p class="precocharizard" id="precocharizard"><strong>Preço:</strong> <span class="preco-original">De: R$74,99</span> POR: <span class="preco-final">R$69,99</span></p>
+
+            </div>
+            <button class="botao_detalhes_produtos" data-target="charizard-details-container">Detalhes do Produto</button>
+            <div class="novotexto-charizard">
+                <p class="product-title2">Descrição do Produto</p>
+                <p class="product-details2">
+                    <strong>Altura:</strong> Aproximadamente 09cm      </p>
+                <p class="product-details2">
+                    <strong>Material:</strong> PVC de alta qualidade  + ABS de alto grau    </p>
+                <p class="product-details2">
+                    <strong>Embalagem:</strong> COM CAIXA   </p>
+                 <p class="product-details2">
+                    <strong>Funcionalidades:</strong> Perfeito para colecionar, decorar ambientes, presentear e muito mais! À prova de umidade, resistente a altas temperaturas, limpeza regular </p>
+
+              </div> 
+              <div>
+                <button class="botao_comprar_produtos">COMPRAR</button>
+                <button class="botao_carrinho_produtos" data-name="Charizard(Pokemon)" data-price="69,99" data-image="images/Charizard_1.jpg">
+                    <img src="images/carrinhodecompra.png" alt="Carrinho" class="imagem-carrinho">
+              </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Barra carrinho -->
+<div id="barra-lateral-carrinho" class="barra-lateral-carrinho">
+    <div class="header-carrinho">
+        <button class="botao-fechar" onclick="fecharBarraLateral()">X</button>
+        <h2 class="barra-botao-fechar">Carrinho de Compra</h2>
+    </div>
+    <div class="itens-carrinho">
+        <!-- Aqui serão listados os itens do carrinho -->
+        <div class="carrinho-item-info">
+            <!-- Conteúdo dos itens do carrinho -->
+        </div>
+    </div>
+    <div class="total-carrinho">
+        <!-- Aqui será exibido o total do carrinho -->
+    </div>
+    <button class="btn-finalizar-compra">Finalizar Compra</button>
+
+</div>
+<!-- Modal de Avaliações -->
+<div id="modal-avaliacoes" class="modal">
+    <div class="modal-content">
+        <span class="close">Fechar Avaliações</span>
+        <h2>Avaliações</h2>
+        <div id="avaliacoes-list" class="avaliacoes-list">
+            <!-- Conteúdo das avaliações será adicionado dinamicamente via JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal para exibir a imagem ampliada -->
+<!-- Modal para exibir a imagem ampliada -->
+<div id="modal-imagem-ampliada" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="imagem-ampliada" class="modal-content">
+    </div>
+</div>
+
+
+<!-- PARTE SOBRE DO SITE -->
+<section id="sobre" class="sobre">
+    <div class="container">
+        <h2>Sobre Nós</h2>
+        <p>Na Vaughan Acton, acreditamos que a qualidade não precisa ter um preço alto. É por isso que oferecemos uma ampla gama de produtos com preços acessíveis para todos, sem comprometer a qualidade.</p>
+        <h3>Nosso foco</h3>
+        <p>Acreditamos no pós-venda como parte essencial da experiência do cliente, por isso oferecemos suporte completo e ágil para qualquer dúvida ou necessidade.Proporcionar uma experiência de compra agradável e segura é fundamental para nós.</p>
+        <h3>Conheça a Equipe</h3>
+        <p>Nossa equipe é composta por entusiastas dedicados e conhecedores do universo anime. Cada membro traz sua própria paixão e expertise para garantir que nossos clientes tenham a melhor experiência possível.</p>
+        <seciton id="contatoemail" class="contatoemail">
+        <h4>Contato</h4>
+        <p>Para contato, envie um e-mail para <strong><img src="images/emailicon.png" width="30px" height="30px"><a href="mailto:store@vaughangeek.com">store@vaughangeek.com</a></strong>. Respondemos em até um dia, seja dia útil ou não.</p>
+        <p>Se preferir, entre em contato pelo WhatsApp através do número <strong><img src="images/whatsicon.png" width="30px" height="30px"> <a href="https://wa.me/5518999999999" target="_blank">18 99999999</a></strong>. Faremos o possível para responder o mais breve possível.</p>
+    </seciton>
+    </div>
+</section>
+<!-- Rodapé-->
+<footer>
+        <p>&copy; 2024 VAUGHAN STORE. Todos os direitos reservados.</p>
+        <a href="devolucao.html" class="Devolucao">Política de Devolução</a>
+        <a href="https://transparencyreport.google.com/safe-browsing/search?url=http:%2F%2Fvaughangeek.com" target="_blank">
+            <img src="images/site-protegido.png" alt="site-protegido" class="site-protegido">
+        </a>
+    </footer>
+<!--scripts -->
+<script>
+$(document).ready(function() {
+  // Inicializar o Slick Carousel
+  $('.slick').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true
+  });
+
+// Manipular clique na miniatura
+$('.thumbnails img, .thumbnails video').on('click', function() {
+    var $thumbnailContainer = $(this).parent();
+    var $mainImageContainer = $thumbnailContainer.siblings('.image-container');
+    var $mainImage = $mainImageContainer.find('.main-image');
+    var newSrc = $(this).attr('src');
+    var isVideo = $(this).is('video');
+    var $currentVideo = $mainImageContainer.find('video');
+
+    // Remover a classe 'active' de todas as miniaturas e vídeos
+    $('.thumbnails img, .thumbnails video').removeClass('active');
+
+    // Adicionar a classe 'active' à miniatura ou vídeo clicado
+    $(this).addClass('active');
+
+    // Remover qualquer imagem ou vídeo existente
+    $mainImageContainer.find('img, video').remove();
+
+    if (isVideo) {
+      // Adicionar o vídeo clicado ao contêiner de imagem principal
+      $mainImageContainer.append('<video src="' + newSrc + '" controls autoplay class="main-image" id="denji-main-image"></video>');
+      
+      // Pausar a reprodução de qualquer outro vídeo que esteja sendo reproduzido
+      $currentVideo.trigger('pause');
+    } else {
+      // Adicionar a imagem clicada ao contêiner de imagem principal
+      $mainImageContainer.append('<img src="' + newSrc + '" alt="Denji Pochita" class="main-image" id="denji-main-image">');
+    }
+});
+
+
+  // Alternar detalhes do produto
+$('.botao_detalhes_produtos').on('click', function() {
+  // Find the product container and descriptions
+  var $productContainer = $(this).closest('.product-item');
+  var $description = $productContainer.find('.product-description');
+  var $additionalContent = $productContainer.find('.novotexto-zoro, .novotexto-denji, .novotexto-charizard');
+
+  // Check if additional content is visible
+  if ($additionalContent.is(':visible')) {
+    // Hide additional content and show description
+    $additionalContent.hide();
+    $description.show();
+  } else {
+    // Hide description and show additional content (existing behavior)
+    $description.hide();
+    $additionalContent.show();
+  }
+  
+});
+
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const botoesCarrinho = document.querySelectorAll('.botao_carrinho_produtos');
+    const botoesComprar = document.querySelectorAll('.botao_comprar_produtos');
+    const barraLateral = document.getElementById('barra-lateral-carrinho');
+    const botaoFechar = barraLateral.querySelector('.botao-fechar');
+    const itensCarrinho = barraLateral.querySelector('.itens-carrinho');
+    const totalCarrinho = barraLateral.querySelector('.total-carrinho');
+    const carrinhoLink = document.getElementById('carrinho-link'); // Seleciona o link do carrinho na barra superior
+    let carrinho = []; // Array para armazenar os itens do carrinho
+
+    // Função para adicionar produto ao carrinho
+    function adicionarProdutoAoCarrinho(botao) {
+        toggleBarraLateral(); // Mostra a barra lateral
+
+        const nomeProduto = botao.getAttribute('data-name');
+        const precoProduto = parseFloat(botao.getAttribute('data-price').replace(',', '.'));
+        const imagemProduto = botao.getAttribute('data-image');
+
+        const produto = {
+            nome: nomeProduto,
+            quantidade: 1,
+            preco: precoProduto,
+            imagem: imagemProduto
+        };
+
+        adicionarAoCarrinho(produto); // Adiciona o produto ao carrinho
+        atualizarBarraLateral(); // Atualiza a barra lateral com os itens do carrinho
+    }
+
+    // Adiciona um evento de clique a todos os botões de carrinho
+    botoesCarrinho.forEach(botao => {
+        botao.addEventListener('click', function() {
+            adicionarProdutoAoCarrinho(botao);
+        });
+    });
+
+    // Adiciona um evento de clique a todos os botões "COMPRAR"
+    botoesComprar.forEach(botao => {
+        botao.addEventListener('click', function() {
+            // Encontrar o botão de carrinho correspondente
+            const botaoCarrinho = botao.nextElementSibling;
+            if (botaoCarrinho && botaoCarrinho.classList.contains('botao_carrinho_produtos')) {
+                adicionarProdutoAoCarrinho(botaoCarrinho);
+            }
+        });
+    });
+
+    // Adiciona um evento de clique ao link do carrinho na barra superior
+    if (carrinhoLink) {
+        carrinhoLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Para evitar o comportamento padrão do link
+            toggleBarraLateral(); // Chama a função para alternar a barra lateral
+            atualizarBarraLateral(); // Atualiza a barra lateral com os itens do carrinho ao abrir
+        });
+    }
+
+    // Adiciona um evento de clique ao botão de fechar
+    botaoFechar.addEventListener('click', function() {
+        toggleBarraLateral(); 
+    });
+
+    // Função para adicionar produto ao carrinho
+    function adicionarAoCarrinho(produto) {
+        const itemExistente = carrinho.find(item => item.nome === produto.nome);
+
+        if (itemExistente) {
+            itemExistente.quantidade++; // Aumenta a quantidade se o produto já estiver no carrinho
+        } else {
+            carrinho.push(produto); // Adiciona o produto ao carrinho
+        }
+        atualizarBarraLateral(); // Atualiza a barra lateral após a adição
+    }
+
+    // Função para atualizar a barra lateral do carrinho
+    function atualizarBarraLateral() {
+        itensCarrinho.innerHTML = ''; // Limpa a lista de itens do carrinho
+        let subtotal = 0; // Variável para armazenar o subtotal
+
+        carrinho.forEach(item => {
+            const itemHTML = `
+                <div class="item-carrinho">
+                    <img src="${item.imagem}" alt="${item.nome}" class="mini-imagem">
+                    <div class="detalhes-produto">
+                        <p class="nome-produto">${item.nome}</p>
+                        <div class="quantidade-controles">
+                            <button class="btn-remover" data-nome="${item.nome}">-</button>
+                            <span class="quantidade">${item.quantidade}</span>
+                            <button class="btn-adicionar" data-nome="${item.nome}">+</button>
+                        </div>
+                        <p class="preco">Preço unitário: R$ ${item.preco.toFixed(2)}</p>
+                        <p class="subtotal-item">Subtotal: R$ ${(item.quantidade * item.preco).toFixed(2)}</p>
+                    </div>
+                </div>
+            `;
+            itensCarrinho.innerHTML += itemHTML; // Adiciona cada item do carrinho à barra lateral
+            subtotal += item.quantidade * item.preco; // Calcula o subtotal acumulado
+        });
+
+        // Calcula e exibe o total do carrinho
+        const total = carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+        totalCarrinho.innerHTML = `<p>Total: R$ ${total.toFixed(2)}</p>`;
+
+        // Adiciona eventos aos botões de remover e adicionar quantidade
+        const btnsRemover = document.querySelectorAll('.btn-remover');
+        btnsRemover.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const nomeProduto = btn.getAttribute('data-nome');
+                removerDoCarrinho(nomeProduto);
+            });
+        });
+
+        const btnsAdicionar = document.querySelectorAll('.btn-adicionar');
+        btnsAdicionar.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const nomeProduto = btn.getAttribute('data-nome');
+                adicionarAoCarrinhoPorNome(nomeProduto);
+            });
+        });
+    }
+
+    // Função para remover produto do carrinho
+    function removerDoCarrinho(nomeProduto) {
+        const itemIndex = carrinho.findIndex(item => item.nome === nomeProduto);
+
+        if (itemIndex !== -1) {
+            const item = carrinho[itemIndex];
+            if (item.quantidade > 1) {
+                item.quantidade--; // Diminui a quantidade se for maior que 1
+            } else {
+                carrinho.splice(itemIndex, 1); // Remove o item se a quantidade for 1
+            }
+            atualizarBarraLateral(); // Atualiza a barra lateral após a remoção
+        }
+    }
+
+    // Função para adicionar produto ao carrinho por nome
+    function adicionarAoCarrinhoPorNome(nomeProduto) {
+        const itemExistente = carrinho.find(item => item.nome === nomeProduto);
+
+        if (itemExistente) {
+            itemExistente.quantidade++; // Aumenta a quantidade se o produto já estiver no carrinho
+            atualizarBarraLateral(); // Atualiza a barra lateral após a adição
+        }
+    }
+
+    // Função para alternar a visibilidade da barra lateral
+    function toggleBarraLateral() {
+        if (!barraLateral.classList.contains('active')) {
+            barraLateral.style.right = '0';
+            barraLateral.classList.add('active');
+        } else {
+            barraLateral.style.right = '-700px'; // Ajuste aqui para o valor original de -700px
+            barraLateral.classList.remove('active');
+        }
+    }
+});
+
+/* ESTRELAS */
+// Função para criar estrelas com base na avaliação
+function createStars(rating) {
+  let starsContainer = document.createElement('div');
+  starsContainer.classList.add('stars');
+  for (let i = 1; i <= 5; i++) {
+    let star = document.createElement('span');
+    star.classList.add('star');
+
+    if (i <= Math.floor(rating)) {
+      star.classList.add('filled');
+    } else if (i === Math.floor(rating) + 1 && rating % 1 !== 0) {
+      star.classList.add('partial');
+    }
+
+    star.innerHTML = '&#9733;';
+    starsContainer.appendChild(star);
+  }
+  return starsContainer;
+}
+
+// Função para atualizar as estrelas com base nos dados recebidos
+function atualizarEstrelas(avaliacoesData) {
+    document.querySelectorAll('.product-item').forEach(item => {
+        const anuncioId = item.getAttribute('data-id');
+        const ratingData = avaliacoesData[anuncioId] || { rating: 0, reviewCount: 0 };
+
+        const starsContainer = item.querySelector('.stars');
+        const reviewCountElement = item.querySelector('.review-count');
+        const averageRatingElement = item.querySelector('.average-rating');
+
+        // Atualiza a média e a contagem de avaliações
+        averageRatingElement.textContent = `(${ratingData.rating.toFixed(1)})`;
+        reviewCountElement.textContent = `(${ratingData.reviewCount} avaliações)`;
+
+        // Atualiza as estrelas
+        const stars = starsContainer.querySelectorAll('.star');
+        const avgRating = ratingData.rating;
+
+        stars.forEach((star, index) => {
+            star.classList.remove('filled', 'partial');
+            if (index < Math.floor(avgRating)) {
+                star.classList.add('filled');
+            } else if (index === Math.floor(avgRating) && avgRating % 1 !== 0) {
+                star.classList.add('partial');
+            }
+        });
+    });
+}
+
+// Evento de clique nas estrelas para abrir o modal com as avaliações específicas do anúncio
+document.querySelectorAll('.product-item .star').forEach(star => {
+    star.addEventListener('click', function() {
+        let anuncioId = this.closest('.product-item').getAttribute('data-id');
+
+        fetch(`buscar_avaliacoes.php?anuncio_id=${anuncioId}`)
+            .then(response => response.json())
+            .then(data => {
+                exibirModalAvaliacoes(data.avaliacoes);
+
+                let modal = document.getElementById('modal-avaliacoes');
+                let averageRating = data.avaliacoesData[anuncioId].rating.toFixed(1);
+                let reviewCount = data.avaliacoesData[anuncioId].reviewCount;
+                modal.querySelector('.average-rating').textContent = `(${averageRating})`;
+                modal.querySelector('.review-count').textContent = `(${reviewCount} avaliações)`;
+                modal.querySelector('.stars').setAttribute('data-rating', averageRating);
+            })
+            .catch(error => console.error('Erro ao buscar avaliações:', error));
+    });
+});
+
+// Função para exibir as avaliações no modal
+// Função para exibir as avaliações no modal
+function exibirModalAvaliacoes(avaliacoes) {
+    let modal = document.getElementById('modal-avaliacoes');
+    let avaliacoesList = document.getElementById('avaliacoes-list');
+    avaliacoesList.innerHTML = '';
+
+    avaliacoes.forEach(avaliacao => {
+        let divAvaliacao = document.createElement('div');
+        divAvaliacao.classList.add('avaliacao-item');
+
+        let nome = document.createElement('h3');
+        nome.textContent = avaliacao.nome;
+        nome.classList.add('nome-avaliador');
+
+        let stars = createStars(avaliacao.rating);
+
+        let comentario = document.createElement('p');
+        comentario.textContent = avaliacao.comment;
+
+        divAvaliacao.appendChild(nome);
+        divAvaliacao.appendChild(stars);
+        divAvaliacao.appendChild(comentario);
+
+        if (avaliacao.image_url) {
+            let imagemContainer = document.createElement('div');
+            imagemContainer.classList.add('zoomable-image');
+
+            let imagem = document.createElement('img');
+            imagem.src = avaliacao.image_url;
+            imagem.classList.add('avaliacao-imagem');
+
+            // Adicionar evento de clique para exibir a imagem ampliada
+            imagem.addEventListener('click', function() {
+                exibirImagemAmpliada(avaliacao.image_url);
+            });
+
+            imagemContainer.appendChild(imagem);
+            divAvaliacao.appendChild(imagemContainer);
+        }
+
+        avaliacoesList.appendChild(divAvaliacao);
+    });
+
+    modal.style.display = 'block';
+
+    let closeButton = modal.querySelector('.close');
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+}
+
+// Função para exibir a imagem ampliada
+function exibirImagemAmpliada(imageUrl) {
+    let modal = document.getElementById('modal-imagem-ampliada');
+    let imagem = document.getElementById('imagem-ampliada');
+    imagem.src = imageUrl;
+    modal.style.display = 'block';
+
+    let closeButton = modal.querySelector('.close');
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('buscar_avaliacoes.php')
+        .then(response => response.json())
+        .then(data => {
+            atualizarEstrelas(data.avaliacoesData);
+        })
+        .catch(error => console.error('Erro ao buscar avaliações:', error));
+});
+
+
+
+//BARRA DE PESQUISA
+document.getElementById('search-bar').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const productInfos = document.querySelectorAll('.product-info');
+    let hasResults = false;
+
+    productInfos.forEach(function(productInfo) {
+        const title = productInfo.querySelector('p').textContent.toLowerCase();
+        if (title.includes(searchTerm)) {
+            productInfo.style.display = 'block';
+            hasResults = true;
+        } else {
+            productInfo.style.display = 'none';
+        }
+    });
+
+    if (!hasResults) {
+        document.getElementById('no-results-message').style.display = 'block';
+    } else {
+        document.getElementById('no-results-message').style.display = 'none';
+    }
+
+    // Rolando para o catálogo
+    document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+});
+//MINI ANUNCIOS E BOTOES PRODUTOS
+
+const tiposDeProdutos = [
+    { nome: 'Todos', link: '#todos' },
+    { nome: 'Action Figure', link: '#action-figure' },
+    { nome: 'Canecas', link: '#canecas' },
+    { nome: 'Roupa', link: '#roupa' },
+    { nome: 'Tênis', link: '#tenis' }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdownMenu = document.getElementById('tipos-produtos');
+    const filterButtonsContainer = document.getElementById('filter-buttons');
+
+    tiposDeProdutos.forEach(tipo => {
+        const link = document.createElement('a');
+        link.href = tipo.link;
+        link.textContent = tipo.nome;
+        dropdownMenu.appendChild(link);
+
+        const button = document.createElement('button');
+        button.textContent = tipo.nome;
+        button.dataset.type = tipo.link.substring(1); // Remove o '#' do link
+        button.addEventListener('click', function() {
+            const type = this.dataset.type;
+            filterProductsByType(type);
+        });
+        filterButtonsContainer.appendChild(button);
+    });
+
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const type = this.getAttribute('href').substring(1); // Obtém o tipo do link
+            filterProductsByType(type);
+            // Exibir a seção de catálogo
+            document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    document.getElementById('produtos-dropdown').addEventListener('mouseenter', showTiposDeProdutos);
+    document.getElementById('produtos-dropdown').addEventListener('mouseleave', hideTiposDeProdutos);
+});
+
+function showTiposDeProdutos() {
+    document.getElementById('tipos-produtos').style.display = 'block';
+}
+
+function hideTiposDeProdutos() {
+    document.getElementById('tipos-produtos').style.display = 'none';
+}
+
+let currentPage = 1;
+const itemsPerPage = 25;
+
+function hideAllProductItems() {
+    const productItems = document.querySelectorAll('.product-item');
+    productItems.forEach(item => {
+        item.classList.remove('active');
+        item.style.display = 'none';
+    });
+
+    const productGalleries = document.querySelectorAll('.product-gallery.slick');
+    productGalleries.forEach(gallery => {
+        gallery.classList.remove('active');
+        gallery.style.display = 'none';
+    });
+}
+
+function showFullProductDetails(productId) {
+    hideAllProductItems();
+
+    const productItem = document.querySelector(`.product-item[data-id="${productId}"]`);
+    if (productItem) {
+        productItem.classList.add('active');
+        productItem.style.display = 'block';
+
+        const productGallery = productItem.closest('.product-gallery.slick');
+        if (productGallery) {
+            productGallery.style.display = 'block';
+            $(productGallery).slick('setPosition');
+        }
+    }
+}
+
+function gatherProductInformationAndDisplay(type = null) {
+    const resultContainer = document.getElementById('resultado');
+    resultContainer.innerHTML = '';
+
+    let productItems = document.querySelectorAll('.product-item');
+    
+    if (type && type !== 'todos') {
+        productItems = Array.from(productItems).filter(item => item.dataset.type === type);
+    }
+
+    const totalPages = Math.ceil(productItems.length / itemsPerPage);
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const itemsToShow = Array.from(productItems).slice(start, end);
+
+    itemsToShow.forEach(item => {
+        const productId = item.dataset.id;
+        const imageSrc = item.querySelector('.main-image').getAttribute('src');
+        const title = item.querySelector('.product-title').textContent.trim();
+        const originalPrice = item.querySelector('.preco-original').textContent.trim();
+        const finalPrice = item.querySelector('.preco-final').textContent.trim();
+
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product-info');
+        productDiv.dataset.id = productId;
+
+        productDiv.innerHTML = `
+            <img src="${imageSrc}" alt="${title}" class="product-image">
+            <p>${title}</p>
+            <div class="product-prices">
+                <p class="original-price">${originalPrice}</p>
+                <p class="final-price">Por: ${finalPrice}</p>
+            </div>
+            <hr>
+        `;
+
+        productDiv.addEventListener('click', () => showFullProductDetails(productId));
+
+        resultContainer.appendChild(productDiv);
+    });
+
+    const productInfos = document.querySelectorAll('.product-info');
+    const noResultsMessage = document.getElementById('no-results-message');
+
+    if (productInfos.length === 0) {
+        noResultsMessage.style.display = 'block';
+    } else {
+        noResultsMessage.style.display = 'none';
+    }
+
+    document.getElementById('prevPage').disabled = currentPage === 1;
+    document.getElementById('nextPage').disabled = currentPage === totalPages;
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        gatherProductInformationAndDisplay();
+    }
+}
+
+function nextPage() {
+    const productItems = document.querySelectorAll('.product-item');
+    const totalPages = Math.ceil(productItems.length / itemsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        gatherProductInformationAndDisplay();
+    }
+}
+
+function filterProductsByType(type) {
+    currentPage = 1; 
+    gatherProductInformationAndDisplay(type);
+}
+
+window.addEventListener('load', () => {
+    hideAllProductItems();
+    gatherProductInformationAndDisplay();
+});
+ //SISTEMA DE LOGIN
+ document.addEventListener('DOMContentLoaded', function() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        document.querySelector('#user-name').textContent = user.first_name;
+        document.querySelector('#user-avatar').src = user.picture;
+        document.querySelector('#greeting').style.display = 'flex';
+        document.querySelector('.btnlogin').classList.add('hidden');
+    } else {
+        document.querySelector('.btnlogin').classList.remove('hidden');
+        document.querySelector('#greeting').style.display = 'none';
+    }
+});
+
+function signOut() {
+    localStorage.removeItem('user');
+    window.location.href = 'index.html';  // Certifique-se de que o caminho seja o correto para sua página inicial
+}
+
+function toggleUserMenu() {
+    const userMenu = document.getElementById('user-menu');
+    userMenu.classList.toggle('hidden');
+}
+
+// Adicione um event listener para ocultar o menu quando o usuário clicar fora dele
+document.addEventListener('click', function(event) {
+    const userMenu = document.getElementById('user-menu');
+    const userAvatar = document.getElementById('user-avatar');
+    if (!userMenu.contains(event.target) && event.target !== userAvatar) {
+        userMenu.classList.add('hidden');
+    }
+});
+// MENU TOGGLE
+document.getElementById('menu-toggle').addEventListener('click', function() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('show');
+    });
+
+</script>
+
+</body>
+</html>
